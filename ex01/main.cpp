@@ -6,14 +6,16 @@
 int main(void)
 {
 	PhoneBook	phoneBook;
-	std::string cmd;
+	std::string	cmd;
 
 	while (true)
 	{
 		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
 		if (!std::getline(std::cin, cmd))
-			break;
-
+		{
+			std::cout << "You broke the phonebook :(\n";
+			break ;
+		}
 		if (cmd == "ADD")
 			phoneBook.add();
 		else if (cmd == "SEARCH")
