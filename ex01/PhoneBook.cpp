@@ -1,5 +1,3 @@
-#include <iostream>
-#include <iomanip> /* for std::setw, std::right */
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void)

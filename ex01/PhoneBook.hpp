@@ -2,6 +2,8 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iostream>
+#include <iomanip> /* for std::setw, std::right */
 
 class PhoneBook
 {
