@@ -15,8 +15,9 @@ class PhoneBook
 		std::string	_formatField(const std::string &field) const;
 
 	public:
-		void add(void);
-		void search(void) const;
+		PhoneBook(void);
+		void	add(void);
+		void	search(void) const;
 };
 
 #endif
