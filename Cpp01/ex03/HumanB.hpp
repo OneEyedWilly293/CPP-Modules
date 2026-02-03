@@ -1,24 +1,19 @@
-#include "HumanB.hpp"
+#pragma once
 
-HumanB::HumanB(const std::string &name) : _name(name), _weapon(nullptr)
-{
-}
+#include <iostream>
+#include <string>
+#include "Weapon.hpp"
 
-HumanB::~HumanB(void)
+class HumanB
 {
-}
+	private:
+		std::string	_name;
+		Weapon		*_weapon;
 
-void	HumanB::setWeapon(Weapon &weapon)
-{
-	_weapon = &weapon;
-}
+	public:
+		HumanB(const std::string &name);
+		~HumanB(void);
 
-void	HumanB::attack(void) const
-{
-	if (_weapon == nullptr)
-	{
-		std::cout << _name << " attacks with their " << "bare hands" << std::endl;
-		return ;
-	}
-	std::cout << _name << "attacks with their " << _weapon->getType() << std::endl;
-}
+		void	setWeapon(Weapon &weapon);
+		void	attack(void) const;
+};

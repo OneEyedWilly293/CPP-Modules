@@ -1,18 +1,14 @@
-#pragma once
+#include "HumanA.hpp"
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
-
-class HumanA
+HumanA::HumanA(const std::string &name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
-	private:
-		std::string	_name;
-		Weapon		&_weapon;
+}
 
-	public:
-		HumanA(const std::string &name, Weapon &weapon);
-		~HumanA(void);
+HumanA::~HumanA(void)
+{
+}
 
-		void attack(void) const;
-};
+void	HumanA::attack(void) const
+{
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
+}

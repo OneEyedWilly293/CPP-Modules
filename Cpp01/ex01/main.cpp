@@ -6,7 +6,7 @@ int main(void)
 	int		n;
 	int 	i;
 
-	n = 5;
+	n = 3;
 	horde = zombieHorde(n, "HordeFoo");
 	if (horde == nullptr)
 		return (1);

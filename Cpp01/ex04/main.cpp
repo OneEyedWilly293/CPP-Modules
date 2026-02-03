@@ -47,7 +47,7 @@ int main (int argc, char **argv)
 
 	if (argc != 4)
 	{
-		std::cerr << "Usage: ./sed <filename> <s1> <s2>" << std::endl;
+		std::cerr << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
 		return (1);
 	}
 	filename = argv[1];
@@ -68,8 +68,10 @@ int main (int argc, char **argv)
 	if (!read_all(in, content))
 	{
 		std::cerr << "Error: could not read input file." << std::endl;
+		in.close();
 		return (1);
 	}
+	in.close();
 
 	out.open((filename + ".replace").c_str());
 	if (!out.is_open())
@@ -77,6 +79,13 @@ int main (int argc, char **argv)
 		std::cerr << "Error: could not create output file." << std::endl;
 		return (1);
 	}
-	out <<replace_all(content, s1, s2);
+	out << replace_all(content, s1, s2);
+	if (out.fail())
+	{
+		std::cerr << "Error: could not write to output file." << std::endl;
+		out.close();
+		return (1);
+	}
+	out.close();
 	return (0);
 }

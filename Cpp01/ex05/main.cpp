@@ -8,6 +8,6 @@ int main(void)
 	h.complain("INFO");
 	h.complain("WARNING");
 	h.complain("ERROR");
-	h.comlain("NOT_A_LEVEL");
+	h.complain("NOT_A_LEVEL");
 	return (0);
 }
