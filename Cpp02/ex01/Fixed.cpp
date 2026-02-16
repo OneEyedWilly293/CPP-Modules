@@ -7,7 +7,7 @@ Fixed &Fixed::operator=(Fixed const &other)
 {
 	if (this != &other)
 		_rawBits = other.getRawBits();
-	return *this;
+	return (*this);
 }
 Fixed::~Fixed(void) {}
 
@@ -65,5 +65,5 @@ int Fixed::toInt(void) const
 std::ostream &operator << (std::ostream &os, Fixed const &x)
 {
 	os << x.toFloat();
-	return os;
+	return (os);
 }
