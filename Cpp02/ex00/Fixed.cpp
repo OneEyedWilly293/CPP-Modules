@@ -9,7 +9,6 @@ Fixed::Fixed(Fixed const &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
-	/* TO DO: check if direct copy and avoid printing assignment here */
 }
 
 Fixed &Fixed::operator=(Fixed const &other)
