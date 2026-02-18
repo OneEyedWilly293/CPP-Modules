@@ -1,6 +1,4 @@
-
 #include "Fixed.hpp"
-#include <cmath>
 
 Fixed::Fixed(void) : _raw(0)
 {
@@ -59,11 +57,6 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	/*
-		Convert to float then cast to int:
-		- easy to understand
-		- truncates toward 0 in practice (what you expect for these exercises)
-	*/
 	return ((int)this->toFloat());
 }
 

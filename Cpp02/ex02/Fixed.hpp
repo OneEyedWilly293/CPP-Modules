@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 
 /*
     ex02 reminder (what we store):
@@ -19,7 +20,6 @@ class Fixed
 		static const int	_fracBits = 8;
 
 	public:
-		/* Orthodox Canonical Form */
 		Fixed(void);
 		Fixed(Fixed const &other);
 		Fixed &operator=(Fixed const &other);
