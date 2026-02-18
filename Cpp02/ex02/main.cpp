@@ -18,7 +18,7 @@ int	main(void)
 	/* ------------------------------------------------------------ */
 	/* 1) Subject's sample test                                     */
 	/* ------------------------------------------------------------ */
-	print_title("PDF sample");
+	print_title("PDF sample test");
 	{
 		Fixed		a;
 		Fixed const	b(Fixed(5.05f) * Fixed(2));
@@ -35,7 +35,7 @@ int	main(void)
 	/* ------------------------------------------------------------ */
 	/* 2) Comparison operators                                      */
 	/* ------------------------------------------------------------ */
-	print_title("Comparisons");
+	print_title("Comparisons operators");
 	{
 		Fixed x(2);
 		Fixed y(2);
@@ -57,7 +57,7 @@ int	main(void)
 	/* ------------------------------------------------------------ */
 	/* 3) Arithmetic operators                                      */
 	/* ------------------------------------------------------------ */
-	print_title("Arithmetic");
+	print_title("Arithmetic operators");
 	{
 		Fixed a(1.50f);
 		Fixed b(2.25f);
