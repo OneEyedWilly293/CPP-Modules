@@ -1,15 +1,25 @@
 #include "Fixed.hpp"
-#include <cmath>
 
-Fixed::Fixed(void) : _rawBits(0) {}
-Fixed::Fixed(Fixed const &other) { *this = other; }
+Fixed::Fixed(void) : _rawBits(0)
+{
+	std::cout << "Default constructor called" << std::endl;
+}
+Fixed::Fixed(Fixed const &other)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
+}
 Fixed &Fixed::operator=(Fixed const &other)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		_rawBits = other.getRawBits();
 	return (*this);
 }
-Fixed::~Fixed(void) {}
+Fixed::~Fixed(void)
+{
+	std::cout << "Destructor called" << std::endl;
+}
 
 /*
  * int constructor:
@@ -17,6 +27,7 @@ Fixed::~Fixed(void) {}
 */
 Fixed::Fixed(int const n)
 {
+	std::cout << "Int constructor called" << std::endl;
 	_rawBits = n << _fractionalBits;
 }
 
@@ -26,6 +37,7 @@ Fixed::Fixed(int const n)
  */
 Fixed::Fixed(float const f)
 {
+	std::cout << "Float constructor called" << std::endl;
 	const float scale = (float)(1 << _fractionalBits);
 	this->_rawBits = (int)roundf(f * scale);
 }
