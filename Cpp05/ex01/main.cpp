@@ -19,20 +19,20 @@ int main()
 
 	try
 	{
-		// basic form that anyone can sign (requires grade 150)
-		Form coffeeForm("Coffee Request", 150, 150);
-		std::cout << "Successfully created: " << coffeeForm << std::endl;
+		// basic Form that anyone can sign (requires grade 150)
+		Form coffeeAForm("Coffee Request", 150, 150);
+		std::cout << "Successfully created: " << coffeeAForm << std::endl;
 
 		// This should throw and error because 0 is an invalid grade (highest is 1)
-		std::cout << "Attempting to create an invalid form..." << std::endl;
-		Form invalidForm("Illegal Form", 0, 50);
+		std::cout << "Attempting to create an invalid Form..." << std::endl;
+		Form invalidAForm("Illegal Form", 0, 50);
 
 		// Because the exception is thrown above, the program jumps to 'catch'.
 		std::cout << "You will never see this line." << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		// catching the form::GradeTooHighException
+		// catching the Form::GradeTooHighException
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
 
@@ -57,21 +57,21 @@ int main()
 
 		// We make intern attempt to sign the classified document.
 		// Since his grade is worse than the required grade(10) it should print failure message!
-		intern.signForm(secretDoc);
+		intern.signAForm(secretDoc);
 
-		// Let's prove the form is still unsigned.
+		// Let's prove the Form is still unsigned.
 		std::cout << "Status after Intern: " << secretDoc << std::endl;
 
 		// Now we make CEO step in to sign the classified document.
 		// Since his grade(1) is better than the required grade(10) this should print success message!
-		ceo.signForm(secretDoc);
+		ceo.signAForm(secretDoc);
 
-		// Let's prove the form is now signed.
+		// Let's prove the Form is now signed.
 		std::cout << "Status after CEO: " << secretDoc << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		// We shouldn't hit this catch block beacuse our signForm() funcion
+		// We shouldn't hit this catch block beacuse our signAForm() funcion
 		// internally handles the try-catch for the signinig process!
 		// But it's considered as good practice to wrap object creation in a try-catch.
 		std::cout << "Critical Error: " << e.what() << std::endl;
@@ -85,11 +85,11 @@ int main()
 	try
 	{
 		Bureaucrat intern("The Intern", 150);
-		Form coffeeForm("Coffee Request Form", 150, 150);
+		Form coffeeAForm("Coffee Request Form", 150, 150);
 
-		// since the coffee form requires grade 150, the intern is allowed to sign it!
-		intern.signForm(coffeeForm);
-		std::cout << coffeeForm << std::endl;
+		// since the coffee Form requires grade 150, the intern is allowed to sign it!
+		intern.signAForm(coffeeAForm);
+		std::cout << coffeeAForm << std::endl;
 	}
 	catch (const std::exception& e)
 	{

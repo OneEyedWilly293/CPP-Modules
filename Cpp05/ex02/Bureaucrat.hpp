@@ -4,7 +4,7 @@
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -32,7 +32,9 @@ class Bureaucrat
 		// Demotes the bureaucrat. Adding 1 to the grade.
 		void	decrementGrade();
 
-		void	signAForm(Form& Form);
+		void	signAForm(AForm& AForm);
+
+		void	executeForm(const AForm& form);
 
 		// Exceptions (custom errors)
 		// These custom error classes inherit from the standard C++ exception class.

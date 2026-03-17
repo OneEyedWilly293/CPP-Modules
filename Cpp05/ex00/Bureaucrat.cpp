@@ -75,7 +75,7 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 	return "Bureaucrat grade is too low! (Must be 150 or higher)";
 }
 
-// Teaches the output stream how to print a Bureaucrat object in the exact format required.
+// Teaches the output stream how to print a Bureaucrat object in the exact AFormat required.
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& target)
 {
 	os << target.getName() << ", bureaucrat grade " << target.getGrade() << ".";
