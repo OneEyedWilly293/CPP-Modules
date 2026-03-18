@@ -33,8 +33,11 @@ int main()
 
 	// 1. Success: Intern creates a Robotomy form
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	if (rrf)
+	// because we know it will return nullptr if it fails (instead of crashing),
+	// we just use if statement to check.
+	if (rrf != nullptr)
 	{
+		// We only execute the form if the memory was successfully allocated
 		ceo.signForm(*rrf);
 		ceo.executeForm(*rrf);
 		delete rrf;

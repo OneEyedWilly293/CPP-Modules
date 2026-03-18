@@ -21,17 +21,38 @@ Intern::~Intern()
 
 AForm* Intern::makePresidentialPardon(const std::string& target) const
 {
-	return new PresidentialPardonForm(target);
+	AForm* newForm = new (std::nothrow) PresidentialPardonForm(target);
+
+	if (newForm == nullptr)
+	{
+		std::cerr << "CRITICAL ERROR: std::bad_alloc triggered. Out of memory!"
+			<< std::endl;
+	}
+	return newForm;
 }
 
 AForm* Intern::makeRobotomyRequest(const std::string& target) const
 {
-	return new RobotomyRequestForm(target);
+	AForm* newForm = new (std::nothrow) PresidentialPardonForm(target);
+
+	if (newForm == nullptr)
+	{
+		std::cerr << "CRITICAL ERROR: std::bad_alloc triggered. Out of memory!"
+			<< std::endl;
+	}
+	return newForm;
 }
 
 AForm* Intern::makeShrubberyCreation(const std::string& target) const
 {
-	return new ShrubberyCreationForm(target);
+	AForm* newForm = new (std::nothrow) PresidentialPardonForm(target);
+
+	if (newForm == nullptr)
+	{
+		std::cerr << "CRITICAL ERROR: std::bad_alloc triggered. Out of memory!"
+			<< std::endl;
+	}
+	return newForm;
 }
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) const
@@ -83,5 +104,21 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 			return nullptr;
 	}
 }
+ * =======================================================================
+ * 			TRIGGER bad_alloc exception: use in makeRobotomyRequest or others.
+ * 	 int* massive_array = new (std::nothrow) int[50000000];
+
+    // If the ulimit blocks it, it returns nullptr
+    if (massive_array == nullptr)
+    {
+        std::cerr << "CRITICAL ERROR: std::bad_alloc triggered. Out of memory!" << std::endl;
+        return nullptr; // Return nullptr to main so it safely skips!
+    }
+
+    // (If it somehow succeeded, we would clean it up here, but it won't)
+    delete[] massive_array;
+
+    // our normal code:
+    return new (std::nothrow) RobotomyRequestForm(target);
 */
 
