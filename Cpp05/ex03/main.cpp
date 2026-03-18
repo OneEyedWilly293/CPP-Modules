@@ -1,0 +1,62 @@
+#include "Bureaucrat.hpp"
+#include "Intern.hpp"
+
+std::ostream& bold_on(std::ostream& os)
+{
+	return os << "\e[1m";
+}
+
+std::ostream& bold_off(std::ostream& os)
+{
+	return os << "\e[0m";
+}
+
+void printTestTitle(const std::string& title)
+{
+	std::cout << "\n-----------------------------------------------------------"
+		<< std::endl;
+	std::cout << "	" << bold_on << title << bold_off << std::endl;
+	std::cout << "-----------------------------------------------------------"
+		<< std::endl;
+}
+
+int main()
+{
+	printTestTitle("TEST: The Intern creates forms");
+
+	Intern someRandomIntern;
+	Bureaucrat ceo("The CEO", 1);
+
+	AForm* rrf = nullptr;	// A pointer to hold the robotomy form
+	AForm* ppf = nullptr;	// A pointer to hold the Pardon form
+	AForm* fail = nullptr;	// A pointer to test an invalid form
+
+	// 1. Success: Intern creates a Robotomy form
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	if (rrf)
+	{
+		ceo.signForm(*rrf);
+		ceo.executeForm(*rrf);
+		delete rrf;
+	}
+
+	// 2. Success: Intern creates a Pardon form
+	ppf = someRandomIntern.makeForm("presidential pardon", "Alice");
+	if (ppf)
+	{
+		ceo.signForm(*ppf);
+		ceo.executeForm(*ppf);
+		delete ppf;
+	}
+
+	printTestTitle("TEST: Intern fails to create form");
+
+	// 3. Failure: Invalid form name
+	fail = someRandomIntern.makeForm("coffee request", "Boss");
+	if (fail)
+	{
+		delete fail;	// this will never run because fail will be NULL
+	}
+
+	return 0;
+}
