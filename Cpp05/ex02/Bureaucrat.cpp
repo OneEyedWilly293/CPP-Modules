@@ -66,7 +66,7 @@ void Bureaucrat::decrementGrade()
 }
 
 // Attemp to sign a AForm
-void Bureaucrat::signAForm(AForm& AForm)
+void Bureaucrat::signForm(AForm& AForm)
 {
 	try
 	{

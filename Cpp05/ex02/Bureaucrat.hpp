@@ -32,7 +32,7 @@ class Bureaucrat
 		// Demotes the bureaucrat. Adding 1 to the grade.
 		void	decrementGrade();
 
-		void	signAForm(AForm& AForm);
+		void	signForm(AForm& AForm);
 
 		void	executeForm(const AForm& form);
 
