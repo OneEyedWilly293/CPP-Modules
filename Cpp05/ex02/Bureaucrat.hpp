@@ -55,4 +55,4 @@ class Bureaucrat
 
 // OPERATOR OVERLOADING
 // This teaches the std::cout stream how to print our custom object.
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& target);
