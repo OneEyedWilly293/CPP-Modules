@@ -2,6 +2,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <ctime> // for time()
 
 std::ostream& bold_on(std::ostream& os)
 {
@@ -29,6 +30,9 @@ void printSubTitle(const std::string& title)
 
 int main()
 {
+	//20.03: Seed the random number EXACTLY ONCE at the start of the program
+	std::srand(std::time(nullptr));
+
 	printTestTitle("TEST: Bureaucrats and the Three Forms");
 
 	try

@@ -46,15 +46,16 @@ void ShrubberyCreationForm::performAction() const
 	}
 
 	// Write ASCII trees directly into the file
-	outfile << "       _-_" << std::endl;
-	outfile << "    /~~   ~~\\" << std::endl;
-	outfile << " /~~         ~~\\" << std::endl;
-	outfile << "{               }" << std::endl;
-	outfile << " \\  _-     -_  /" << std::endl;
-	outfile << "   ~  \\\\ //  ~" << std::endl;
-	outfile << "_- -   | | _- _" << std::endl;
-	outfile << "  _ -  | |   -_" << std::endl;
-	outfile << "      // \\\\" << std::endl;
+	// 20.03: opted to use string literals for more elegant and cheaper approach
+	outfile << R"(       _-_
+    /~~   ~~\
+ /~~         ~~\
+{               }
+ \  _-     -_  /
+   ~  \\ //  ~
+_- -   | | _- _
+  _ -  | |   -_
+      // \\)";
 
 	// Good practice to close the file when you are done
 	outfile.close();

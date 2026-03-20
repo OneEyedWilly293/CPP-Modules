@@ -35,9 +35,6 @@ void RobotomyRequestForm::performAction() const
 {
 	std::cout << "* BZZZZT! WHIRRRRR! LOUD DRILLING NOISES! *" << std::endl;
 
-	// Seed the random number generator using the current time
-	std::srand(std::time(nullptr));
-
 	// rand() % 2 generates either a 0 or a 1 (50% chance for each)
 	if (std::rand() % 2 == 0)
 	{

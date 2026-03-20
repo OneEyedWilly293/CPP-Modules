@@ -44,7 +44,7 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : m_nam
 	}
 	if (m_gradeToExecute > 150)
 	{
-		throw Form::GradeTooHighException();
+		throw Form::GradeTooLowException();
 	}
 }
 
@@ -71,6 +71,11 @@ int Form::getGradeToExecute() const
 // SIGNING LOGIC
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
+	// 20.03 Robust check: Check if the form is already signed!
+	if (this->m_isSigned)
+	{
+		throw std::runtime_error("Form is already signed!");
+	}
 	// Since: Grade 1 is the highest. Grade 150 is the lowest.
 	// if the Bureaucrat's grade is a larger number than the required grade, it means
 	// they are too low-ranking to sign it

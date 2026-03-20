@@ -15,7 +15,7 @@ class PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 
 		// custom constructor that take the target's name
-		PresidentialPardonForm(const std::string& targer);
+		PresidentialPardonForm(const std::string& target);
 
 		void performAction() const override;
 };

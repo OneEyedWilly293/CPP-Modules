@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
+#include <ctime>
 
 std::ostream& bold_on(std::ostream& os)
 {
@@ -22,6 +23,8 @@ void printTestTitle(const std::string& title)
 
 int main()
 {
+	//20.03: Set the seed just ONCE when the program starts(actual 50/50 randomness!)
+	std::srand(std::time(nullptr));
 	printTestTitle("TEST: The Intern creates forms");
 
 	Intern someRandomIntern;

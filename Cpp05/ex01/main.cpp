@@ -25,7 +25,7 @@ int main()
 
 		// This should throw and error because 0 is an invalid grade (highest is 1)
 		std::cout << "Attempting to create an invalid Form..." << std::endl;
-		Form invalidAForm("Illegal Form", 0, 50);
+		Form invalidAForm("Illegal Form", 0, 150);
 
 		// Because the exception is thrown above, the program jumps to 'catch'.
 		std::cout << "You will never see this line." << std::endl;
@@ -38,13 +38,14 @@ int main()
 
 
 	std::cout << "\n-------------------------------------------------------------\n";
-	std::cout << bold_on << "	TEST 2: THe Intern and the Top Secret Document" << bold_off << std::endl;
+	std::cout << bold_on << "	TEST 2: The Intern and the Top Secret Document" << bold_off << std::endl;
 	std::cout << "-------------------------------------------------------------\n";
 
 	try
 	{
 		Bureaucrat intern("The Intern", 150);
 		Bureaucrat ceo("The CEO", 1);
+		Bureaucrat chairman("The Chairman", 1);
 
 		// We create a highly classified document.
 		// It requires a high rank of 10 to sign, and even higher rank of 5 to execute.
@@ -68,6 +69,13 @@ int main()
 
 		// Let's prove the Form is now signed.
 		std::cout << "Status after CEO: " << secretDoc << std::endl;
+
+		// 20.03: DOUBLE SIGN TEST
+		std::cout << "\n--- Testing Double-Signing Protection ---" << std::endl;
+		chairman.signAForm(secretDoc);
+
+		// Let's prove the form is still just normally signed, and the program didn't crash.
+		std::cout << "Status after Double-Sign Attempt: " << secretDoc << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -96,4 +104,5 @@ int main()
 		std::cout << "Critical Error: " << e.what() << std::endl;
 	}
 	return 0;
+
 }

@@ -1,6 +1,5 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib> // for rand() and srand()
-#include <ctime> // for time()
 
 RobotomyRequestForm::RobotomyRequestForm()
 	: AForm("Robotomy Request Form", 72, 45), m_target("Default")
@@ -34,9 +33,6 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::performAction() const
 {
 	std::cout << "* BZZZZT! WHIRRRRR! LOUD DRILLING NOISES! *" << std::endl;
-
-	// Seed the random number generator using the current time
-	std::srand(std::time(nullptr));
 
 	// rand() % 2 generates either a 0 or a 1 (50% chance for each)
 	if (std::rand() % 2 == 0)

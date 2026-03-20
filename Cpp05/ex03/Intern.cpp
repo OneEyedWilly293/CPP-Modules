@@ -33,7 +33,7 @@ AForm* Intern::makePresidentialPardon(const std::string& target) const
 
 AForm* Intern::makeRobotomyRequest(const std::string& target) const
 {
-	AForm* newForm = new (std::nothrow) PresidentialPardonForm(target);
+	AForm* newForm = new (std::nothrow) RobotomyRequestForm(target);
 
 	if (newForm == nullptr)
 	{
@@ -45,7 +45,7 @@ AForm* Intern::makeRobotomyRequest(const std::string& target) const
 
 AForm* Intern::makeShrubberyCreation(const std::string& target) const
 {
-	AForm* newForm = new (std::nothrow) PresidentialPardonForm(target);
+	AForm* newForm = new (std::nothrow) ShrubberyCreationForm(target);
 
 	if (newForm == nullptr)
 	{
