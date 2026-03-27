@@ -2,6 +2,7 @@
 #include <cstdlib> // for std::rand() and srand()
 #include <ctime>	// for std::time()
 #include <exception>
+#include <new> // for std::bad_alloc
 
 #include "Base.hpp"
 
