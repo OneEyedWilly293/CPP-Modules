@@ -10,7 +10,7 @@ int main()
 
 	std::cout << "Original Data address: " << &myData << "\n";
 	std::cout << "Original Data values: id = " << myData.id << ", name = "
-				<< myData.id << "\n\n";
+				<< myData.name << "\n\n";
 
 	// Serialize the pointer into a raw integer
 	auto raw_integer = Serializer::serialize(&myData);
