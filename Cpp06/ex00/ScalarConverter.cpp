@@ -84,7 +84,7 @@ void ScalarConverter::convert(const std::string& literal)
 
 	// 2. Print as Int
 	if (std::isnan(base_value) || std::isinf(base_value) || base_value > std::numeric_limits<int>::max()
-		|| base_value > std::numeric_limits<int>::min())
+		|| base_value < std::numeric_limits<int>::min())
 	{
 		std::cout << "int: impossible\n";
 	}
