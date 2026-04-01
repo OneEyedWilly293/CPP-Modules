@@ -54,5 +54,14 @@ int main()
 	std::cout << "min(j, k) = " << ::min(j, k) << std::endl;
 	std::cout << "max(j, k) = " << ::max(j, k) << std::endl;
 
+	/* Mixed Types (Compile Error - by design)
+	 * ::mix(1, 2.0) !! wont compile; T cant be both int and double
+	 *	==========================================================
+	 * Non-Comparable Types(Compile Error)
+	 * struct Foo {};
+	 * Foo x, y;
+	 * ::min(x, y)	!! wont compile; Foo has no operator<
+	 */
+
 	return 0;
 }
