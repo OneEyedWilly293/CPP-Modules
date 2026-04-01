@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 template <typename T, typename F>
 void iter(T* array, const size_t len, F func)
 {
