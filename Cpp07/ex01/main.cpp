@@ -1,12 +1,18 @@
 #include <iostream>
 #include "iter.hpp"
+#include <string>
 
 template <typename T>
+// 'const T& element' means we accept ANY type by reference.
+// We're using '&' (reference) which prevents copying the data; saves memory.
+// using 'const' ensures we dont accidentally change the data while printing it.
 void print(const T& element)
 {
 	std::cout << element << std::endl;
 }
 
+// no 'const'
+// We use 'int&' because we want to modify the original number.
 void doubleIt(int& element)
 {
 	element *= 2;
