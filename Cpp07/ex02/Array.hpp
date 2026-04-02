@@ -11,11 +11,18 @@ class Array
 		unsigned int	_size;
 
 	public:
+		// Default constructor
+		// called when you create and Array without specifying a size.
 		Array() : _elements(nullptr), _size(0)
 		{
 			std::cout << "Array default constructor called" << std::endl;
 		}
 
+		// Parameterized constructor
+		// called when you create and Array and give it a size.
+		// 'new T[_size]()' asks the OS to give us enough memory to hold '_size' number of 'T' elements.
+		// The empty parenthesis '()' ensures that built-in types(like int or float) are
+		// initialized to 0 by default
 		Array(unsigned int n) : _size(n)
 		{
 			_elements = new T[_size]();
@@ -23,6 +30,8 @@ class Array
 				<< ")" << std::endl;
 		}
 
+		// Copy constructor (when crate a new Array as a copy of an existing one)
+		// we allocate NEW memory for this new array(Deep Copy).
 		Array(const Array& other) : _size(other._size)
 		{
 			std::cout << "Array copy constructor called" << std::endl;
@@ -33,6 +42,8 @@ class Array
 			}
 		}
 
+		// Assignment operator (when use the '=' sign to assign an already-existing array to another already-existing array).
+		// e.g. arr2 = arr1;
 		Array& operator=(const Array& other)
 		{
 			std::cout << "Array assignment operator called" << std::endl;
@@ -49,12 +60,14 @@ class Array
 			return *this;
 		}
 
+		// Destructor
 		~Array()
 		{
 			std::cout << "Array destructor called" << std::endl;
 			delete[] _elements;
 		}
 
+	// Custom Exception class
 	class OutOfBoundsException : public std::exception
 	{
 		public:
@@ -65,7 +78,7 @@ class Array
 	};
 
 	// SUBSCRIPT OPERATOR (Read/Write)
-	// Allows us to access elements like array[i].
+	// Allows us to access elements like array[i].(square brackets to access elements, like 'arr[0]').
 	// We throw our custom exception if the index is invalid.
 	// Returns a reference (T&) so we can modify the element.
 	T& operator[](unsigned int index)
@@ -77,7 +90,8 @@ class Array
 
 	// SUBSCRIPT OPERATOR (Read-Only)
 	// We need a const version of the operator for const arrays.
-	// Returns a const reference (const T&) to preven modification.
+	// if our array is marked 'const', c++ will call this version instead.
+	// Returns a const reference (const T&) to prevent modification.
 	const T& operator[](unsigned int index) const
 	{
 		if (index >= _size)

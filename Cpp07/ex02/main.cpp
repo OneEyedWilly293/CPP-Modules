@@ -10,7 +10,7 @@ int main()
 		std::cout << "emptyArray size: " << emptyArray.size() << std::endl;
 
 
-		std::cout << "=== 2. Testing Parameterized Constructor ===" << std::endl;
+		std::cout << "\n=== 2. Testing Parameterized Constructor ===" << std::endl;
 		Array<int> intArray(5);
 		std::cout << "intArray size: " << intArray.size() << std::endl;
 
@@ -20,16 +20,16 @@ int main()
 		//Assigning values
 		for (unsigned int i = 0; i < intArray.size(); i++)
 			intArray[i] = i * 10;
-
+		// intArray is now : [0, 10, 20, 30, 40]
 
 		std::cout << "\n=== 3. Testing Copy Constructor (Deep Copy) ===" << std::endl;
 		Array<int> copyArray(intArray);
 
 		// Modify the original array to prove they are separated
-		intArray[0] = 999;
+		intArray[0] = 999; // now [999, 10, 20, 30, 40]
 		std::cout << "intArray[0]: " << intArray[0] << " (Modified)" << std::endl;
 		std::cout << "copyArray[0]: " << copyArray[0] << " (Unaffected!)" << std::endl;
-
+		// copyArray should still hold the old intArray values
 
 		std::cout << "\n=== 4. Testing Assignment Operator (Deep Copy) ===" << std::endl;
 		Array<int> assignedArray;
