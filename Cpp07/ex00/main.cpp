@@ -44,7 +44,7 @@ int main()
 	std::cout << "min(-5, -3) = " << ::min(h, i) << std::endl;
 	std::cout << "max(-5, -3) = " << ::max(h, i) << std::endl;
 
-	std::cout << "\n== Edge case 3: negative numbers ==\n";
+	std::cout << "\n== Edge case 4: Floats ==\n";
 	// Templates work with any comparable type, including float
 	float j = 1.1f;
 	float k = 1.2f;
