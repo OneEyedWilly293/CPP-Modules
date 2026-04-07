@@ -1,7 +1,7 @@
 #pragma once
 
 #include <algorithm> // std::find
-#include <stdexcept>
+#include <stdexcept> // std::runtime_error
 
 template <typename T>
 typename T::iterator easyfind(T& container, int value)
