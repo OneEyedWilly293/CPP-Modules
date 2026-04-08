@@ -1,13 +1,16 @@
 #include "Span.hpp"
 
+// Parametized constructor: just saves the max size. The vector start empty by default.
 Span::Span(unsigned int n) : _maxSize(n)
 {
 }
 
+// Copy constructor: copies both the max size AND all stored numbers
 Span::Span(const Span& other) : _maxSize(other._maxSize), _numbers(other._numbers)
 {
 }
 
+// Copy assignment: same as copy constructor, but we check for self-assignment
 Span& Span::operator=(const Span& other)
 {
 	if (this != &other)
@@ -18,10 +21,12 @@ Span& Span::operator=(const Span& other)
 	return *this;
 }
 
+// Deconstructor: nothing to manually clean up(std::vector handles its own memory)
 Span::~Span()
 {
 }
 
+// push_back adds the number to the end of the vector
 void Span::addNumber(int number)
 {
 	if (_numbers.size() >= _maxSize)
@@ -46,6 +51,9 @@ int Span::shortestSpan() const
 	return shortest;
 }
 
+// The longest span is simply: MAX value - MIN value
+// std::max_element / std::min_element return ITERATORS, so we dereference with *
+// https://en.cppreference.com/w/cpp/algorithm/max_element
 int Span::longestSpan() const
 {
 	if (_numbers.size() < 2)
