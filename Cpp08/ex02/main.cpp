@@ -2,10 +2,32 @@
 #include <list>         // for the second test (replacing MutantStack with std::list)
 #include "MutantStack.hpp"
 
+std::ostream& bold_on(std::ostream& os)
+{
+	return os << "\e[1m";
+}
+
+std::ostream& bold_off(std::ostream& os)
+{
+	return os << "\e[0m";
+}
+
+void printHeader(const std::string& title)
+{
+	size_t width = title.size() + 8;
+
+	std::string border(width, '=');
+
+	std::cout << bold_on << border << "\n";
+	std::cout << bold_on << "=   " << title << "   =" << "\n";
+	std::cout << bold_on << border << "\n" << bold_off;
+}
+
 int     main()
 {
     // --- Test 1: MutantStack ---
     // This is the exact test from the subject PDF
+	printHeader("TEST 1: MutantStack(Subject sample");
     MutantStack<int>    mstack;
 
     mstack.push(5);
@@ -38,9 +60,8 @@ int     main()
     // Verify it can be copied into a plain std::stack
     std::stack<int> s(mstack);
 
-	std::cout << "\n=== Test 2: Same output with std::list ===\n";
-
-	// --- Test 2: std::list (should produce the same output) ---
+	std::cout << "\n";
+	printHeader("TEST 2: Same output with std::list");
 	// running the same test with std::list, outputs must match
 	std::list<int> lst;
 
