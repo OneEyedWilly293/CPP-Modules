@@ -27,7 +27,7 @@ int     main()
 {
     // --- Test 1: MutantStack ---
     // This is the exact test from the subject PDF
-	printHeader("TEST 1: MutantStack(Subject sample");
+	printHeader("TEST 1: MutantStack(Subject sample)");
     MutantStack<int>    mstack;
 
     mstack.push(5);
@@ -45,11 +45,11 @@ int     main()
     mstack.push(0);
 
     // Now we use iterators to loop through the stack — bottom to top
-    MutantStack<int>::iterator  it  = mstack.begin();
-    MutantStack<int>::iterator  ite = mstack.end();
+    MutantStack<int>::iterator  it  = mstack.begin(); // "it" points to the BOTTOM element(5)
+    MutantStack<int>::iterator  ite = mstack.end();	// "ite" ponts one-past the TOP (0)
 
-    ++it; // move forward
-    --it; // move backward
+    ++it; // move forward(now points to 3)
+    --it; // move backward(back to 5)
 
     while (it != ite)
     {
@@ -58,12 +58,17 @@ int     main()
     }
 
     // Verify it can be copied into a plain std::stack
+	/*
+	 * Can a regular std::stack be constructed from a MutantStack?
+	 * YES -> compiles fine (MutantStack IS-A std::stack; thanks to inheritance)
+	 * NO -> compiler error (would mean inheritance is broken).
+	 */
     std::stack<int> s(mstack);
 
 	std::cout << "\n";
 	printHeader("TEST 2: Same output with std::list");
 	// running the same test with std::list, outputs must match
-	std::list<int> lst;
+	std::list<int> lst;	//std::list is a doubly-linked list - it naturally supports iterators
 
 	lst.push_back(5);
 	lst.push_back(17);
