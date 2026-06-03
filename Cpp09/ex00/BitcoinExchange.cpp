@@ -4,7 +4,8 @@
 #include <iostream>		// std::cout, std::cerr
 #include <stdexcept>	// std::runtime_error
 #include <cctype>		// std::isdigit
-# include <iomanip>
+#include <chrono>		// std::chrono
+#include <iomanip>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -69,23 +70,13 @@ bool BitcoinExchange::isValidDate(const std::string &date) const
 	int month	= std::stoi(date.substr(5, 2));
 	int day		= std::stoi(date.substr(8, 2));
 
-	if (month < 1 || month > 12)
-		return false;
+	std::chrono::year_month_day ymd {
+		std::chrono::year{year},
+		std::chrono::month{static_cast<unsigned>(month)},
+		std::chrono::day{static_cast<unsigned>(day)}
+	};
 
-	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-	// Leap year: February gets 29 days
-	// A year is a leap year if:
-	// - divisible by 4 AND
-	// - NOT divisible by 100, UNLESS also divisible by 400
-	// Examples: 2000 ✅ 1900 ❌  2024 ✅  2023 ❌
-	bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-	if (isLeapYear)
-		daysInMonth[1] = 29;
-
-	if (day < 1 || day > daysInMonth[month - 1])
-		return false;
-	return true;
+	return ymd.ok();
 }
 
 
