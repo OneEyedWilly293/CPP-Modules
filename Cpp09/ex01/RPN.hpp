@@ -11,10 +11,10 @@ class RPN
 		RPN &operator=(const RPN &other);
 		~RPN();
 
-		int evaluate(const std::string &expression);
+		long long evaluate(const std::string &expression);
 
 	private:
-		std::stack<int> _stack;
+		std::stack<long long> _stack;
 		bool isOperator(char c) const;
-		int applyOperator(char op, int a, int b) const;
+		long long applyOperator(char op, long long a, long long b) const;
 };

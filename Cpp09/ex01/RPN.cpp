@@ -25,7 +25,7 @@ bool RPN::isOperator(char c) const
 	return c == '+' || c == '-' || c == '*' || c == '/';
 }
 
-int RPN::applyOperator(char op, int a, int b) const
+long long RPN::applyOperator(char op, long long a, long long b) const
 {
 	if (op == '+')
 		return a + b;
@@ -42,7 +42,7 @@ int RPN::applyOperator(char op, int a, int b) const
 	throw std::runtime_error("Error: unknown operator");
 }
 
-int RPN::evaluate(const std::string &expression)
+long long RPN::evaluate(const std::string &expression)
 {
 	while (!_stack.empty())
 		_stack.pop();
@@ -61,10 +61,10 @@ int RPN::evaluate(const std::string &expression)
 			if (_stack.size() < 2)
 				throw std::runtime_error("Error: invalid expression");
 
-			int b = _stack.top();
+			long long b = _stack.top();
 			_stack.pop();
 
-			int a = _stack.top();
+			long long a = _stack.top();
 			_stack.pop();
 
 			_stack.push(applyOperator(token, a, b));
