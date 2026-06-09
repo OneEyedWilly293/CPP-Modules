@@ -1,6 +1,20 @@
 #include <iostream>
 #include "BitcoinExchange.hpp"
 
+/**
+ * @file  main.cpp
+ * @brief Entry point for the Bitcoin Exchange program (btc).
+ *
+ * Usage: ./btc <input_file>
+ *
+ * Loads the Bitcoin price database from "data.csv", then processes
+ * the given input file line by line, printing the value of each
+ * Bitcoin amount multiplied by the exchange rate on the given date.
+ *
+ * @param  argc  Number of command-line arguments (must be 2).
+ * @param  argv  argv[1] is the path to the input file.
+ * @return 0 on success, 1 on error.
+ */
 int main(int argc, char **argv)
 {
 	if (argc != 2)
