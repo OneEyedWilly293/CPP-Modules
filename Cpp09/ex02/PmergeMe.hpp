@@ -23,5 +23,7 @@ class PmergeMe
 		void fjSortVec(std::vector<int> &arr);
 		void fjSortDeq(std::deque<int> &arr);
 
+	// --- Shared helper: builds the Jacobsthal-based insertion order ---
+    // Returns 0-indexed positions of pend elements to insert, in optimal order
 		static std::vector<int> buildInsertionOrder(int pendSize);
 };
